@@ -1,14 +1,16 @@
 // Importar view y text de react-native
-import { View, Text } from 'react-native';
+import { View } from 'react-native';
 import { ThemedText } from './themed-text';
 
-export function SaludoInicial() {
-    const nombre = 'Camilo';
+type SaludoInicialProps = {
+  nombre: string;
+  rol: string;
+};
 
+export default function SaludoInicial({ nombre, rol }: SaludoInicialProps) {
     return (
         <View>
-            <ThemedText type="title">Hola, soy {nombre}</ThemedText>
-            <ThemedText type="title">Es nuestra nueva app en React Native</ThemedText>
+            <ThemedText type="title">Me llamo {nombre} y soy un {rol}</ThemedText>
         </View>
     );
 }
