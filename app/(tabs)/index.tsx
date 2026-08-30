@@ -11,6 +11,15 @@ import SaludoInicial from '@/components/SaludoInicial';
 import TarjetaLego from '@/components/TarjetaLego';
 
 export default function HomeScreen() {
+
+  const legos = [
+    { id: 1, nombre: 'Lego HironMan', piezas: 150, disponible: true },
+    { id: 2, nombre: 'Lego Deadpool', piezas: 200, disponible: false },
+    { id: 3, nombre: 'Lego Wolverine', piezas: 300, disponible: true },
+    { id: 4, nombre: 'Lego Spiderman', piezas: 400, disponible: false },
+    { id: 5, nombre: 'Lego Batman', piezas: 200, disponible: true },
+  ];
+
   return (
     <ParallaxScrollView
       headerBackgroundColor={{ light: '#A1CEDC', dark: '#1D3D47' }}
@@ -20,10 +29,17 @@ export default function HomeScreen() {
           style={styles.reactLogo}
         />
       }>
+
       <ThemedView style={styles.titleContainer}>
         <SaludoInicial nombre="SpiderMan" rol="Heroe" />
-        <TarjetaLego nombre="SpiderMan" piezas={100} />
       </ThemedView>
+
+      <ThemedView style={[styles.titleContainer, { flexDirection: 'column', gap: 8 }]}>
+        {legos.map((lego) => (
+          <TarjetaLego key={lego.id} nombre={lego.nombre} piezas={lego.piezas} disponible={lego.disponible} />
+        ))}
+      </ThemedView>
+
       <ThemedView style={styles.stepContainer}>
         <ThemedText type="subtitle">Step 1: Try it</ThemedText>
         <ThemedText>

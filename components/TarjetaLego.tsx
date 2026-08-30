@@ -1,15 +1,17 @@
 // Importar view y text de react-native
-import { View, Text } from 'react-native';
+import { View } from 'react-native';
+import { ThemedText } from './themed-text';
 
 type TarjetaLegoProps = {
   nombre: string;
   piezas: number;
+  disponible: boolean;
 };
 
-export default function TarjetaLego({ nombre, piezas }: TarjetaLegoProps) {
+export default function TarjetaLego({ nombre, piezas, disponible }: TarjetaLegoProps) {
     return (
         <View>
-            <Text>Soy {nombre} y tengo {piezas} piezas</Text>
+            <ThemedText type="defaultSemiBold">Nombre: {nombre}, Piezas: {piezas}, Disponible: {disponible ? 'Disponible' : 'Agotado'}</ThemedText>
         </View>
     );
 }
