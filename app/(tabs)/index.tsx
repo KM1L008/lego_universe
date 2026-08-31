@@ -1,10 +1,8 @@
 import { Image } from 'expo-image';
-import { Platform, StyleSheet } from 'react-native';
+import { StyleSheet } from 'react-native';
 
 import ParallaxScrollView from '@/components/parallax-scroll-view';
-import { ThemedText } from '@/components/themed-text';
 import { ThemedView } from '@/components/themed-view';
-import { Link } from 'expo-router';
 
 // componentes propios
 import SaludoInicial from '@/components/SaludoInicial';
@@ -13,11 +11,10 @@ import TarjetaLego from '@/components/TarjetaLego';
 export default function HomeScreen() {
 
   const legos = [
-    { id: 1, nombre: 'Lego HironMan', piezas: 150, disponible: true },
-    { id: 2, nombre: 'Lego Deadpool', piezas: 200, disponible: false },
-    { id: 3, nombre: 'Lego Wolverine', piezas: 300, disponible: true },
-    { id: 4, nombre: 'Lego Spiderman', piezas: 400, disponible: false },
-    { id: 5, nombre: 'Lego Batman', piezas: 200, disponible: true },
+    { id: 1, nombre: 'Batman', piezas: 150, disponible: true, imgUrl: 'https://i.postimg.cc/3w0j2rvQ/5MYC2QWW6FD3BKX2IELLQNYYKQ.webp' },
+    { id: 2, nombre: 'Joker', piezas: 200, disponible: false, imgUrl: 'https://i.postimg.cc/766kKcqr/maxresdefault.webp' },
+    { id: 3, nombre: 'IronMan', piezas: 300, disponible: true, imgUrl: 'https://i.postimg.cc/4yyxhyYx/859f4b68072516585fc0b4db9c7e2e13.webp' },
+    { id: 4, nombre: 'SuperMan', piezas: 400, disponible: false, imgUrl: 'https://i.postimg.cc/htr6NrC2/5808e94c70c9c8b53f56b5a00275c760.webp' },
   ];
 
   return (
@@ -35,7 +32,7 @@ export default function HomeScreen() {
       </ThemedView>
 
       {legos.map((lego) => (
-        <TarjetaLego key={lego.id} nombre={lego.nombre} piezas={lego.piezas} disponible={lego.disponible} />
+        <TarjetaLego key={lego.id} nombre={lego.nombre} piezas={lego.piezas} disponible={lego.disponible} imagen={lego.imgUrl} />
       ))}
 
     </ParallaxScrollView>
